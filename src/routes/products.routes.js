@@ -2,7 +2,7 @@ import express from "express";
 import { ProductManager } from "../product-manager.js";
 import { validateDataFromProduct } from "../utils.js";
 
-const productManager = new ProductManager("./src/productos.json");
+export const productManager = new ProductManager("./src/productos.json");
 
 export const productsRouter = express.Router();
 
