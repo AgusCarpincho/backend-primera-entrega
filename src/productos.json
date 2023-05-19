@@ -8,5 +8,25 @@
 		"status": true,
 		"category": "Electrodomesticos",
 		"id": "0bd048ce-fa57-4734-b7b9-08557bb949ee"
+	},
+	{
+		"title": "Note",
+		"description": "Una Notebook",
+		"price": 3000,
+		"code": "NOTE123",
+		"stock": 100,
+		"status": true,
+		"category": "Tecnologia",
+		"id": "f8b62ab7-0a2f-477f-a501-f3b98344d450"
+	},
+	{
+		"title": "El señor de los anillos",
+		"description": "Un libro sobre la historia de la tierra media",
+		"price": 200,
+		"code": "LIBRO123",
+		"stock": 200,
+		"status": true,
+		"category": "Entretenimiento",
+		"id": "366ff2ea-5d25-4a4a-aa97-1da788744383"
 	}
 ]

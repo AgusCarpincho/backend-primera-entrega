@@ -1,17 +1,10 @@
 const { v4 } = require("uuid");
 const fs = require("fs");
 
-function generateCartFromRequest(aRequest) {
-	const prods = JSON.parse(aRequest.body.products);
-	if (prods.length != 0) {
-		throw new Error(
-			"Products structure must not have any information. Bad information sended in request"
-		);
-	}
-
+function generateNewEmptyCart() {
 	const newCart = {
 		id: v4(),
-		products: JSON.parse(aRequest.body.products),
+		products: [],
 	};
 	return newCart;
 }
@@ -60,4 +53,4 @@ class CartsManager {
 	}
 }
 
-module.exports = { CartsManager, generateCartFromRequest };
+module.exports = { CartsManager, generateNewEmptyCart };

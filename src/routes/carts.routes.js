@@ -1,5 +1,5 @@
 const express = require("express");
-const { CartsManager, generateCartFromRequest } = require("../carts-manager");
+const { CartsManager, generateNewEmptyCart } = require("../carts-manager");
 const { productManager } = require("./products.routes");
 
 const cartsRouter = express.Router();
@@ -7,19 +7,14 @@ const cartsRouter = express.Router();
 const cartsManager = new CartsManager("./src/carrito.json");
 
 cartsRouter.post("/", (req, res) => {
-	let newCart = {};
-
-	try {
-		newCart = generateCartFromRequest(req);
-	} catch (error) {
-		return res.status(404).send({ message: error.message });
-	}
+	const newCart = generateNewEmptyCart();
 
 	try {
 		cartsManager.addCart(newCart);
 		return res.status(200).send({
 			message: "New empty cart generated successfully",
 			cartId: newCart.id,
+			currentProducts: [],
 		});
 	} catch (error) {
 		return res.status(500).send({ message: "Oops, something went wrong ... " });

@@ -35,7 +35,7 @@ productsRouter.get("/:pid", async (req, res) => {
 	const pid = req.params.pid;
 
 	try {
-		const product = await productManager.getProductById(Number.parseInt(pid));
+		const product = await productManager.getProductById(pid);
 		res.status(200).send({ product: product });
 	} catch (error) {
 		res.status(404).send({
