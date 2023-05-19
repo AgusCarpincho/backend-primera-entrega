@@ -16,7 +16,6 @@ cartsRouter.post("/", (req, res) => {
 	}
 
 	try {
-		console.log(newCart);
 		cartsManager.addCart(newCart);
 		return res.status(200).send({
 			message: "New empty cart generated successfully",
