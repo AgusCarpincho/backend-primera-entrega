@@ -1,4 +1,4 @@
-export function validateDataFromProduct(product) {
+function validateDataFromProduct(product) {
 	if (!product.title) {
 		throw new Error("Missing title information");
 	}
@@ -21,3 +21,5 @@ export function validateDataFromProduct(product) {
 		throw new Error("Missing category information");
 	}
 }
+
+module.exports = validateDataFromProduct;

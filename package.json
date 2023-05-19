@@ -3,10 +3,9 @@
 	"version": "1.0.0",
 	"description": "Primera entrega del proyecto final del curso Backend de Coderhouse",
 	"main": "server.js",
-	"type": "module",
 	"scripts": {
-		"start-with-hot-reload": "nodemon src/server.js",
-		"start": "node src/server.js"
+		"start-with-hot-reload": "nodemon server.js",
+		"start": "node server.js"
 	},
 	"keywords": [],
 	"author": "AgusCarpincho",

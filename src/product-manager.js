@@ -1,7 +1,7 @@
-import * as fs from "fs";
-import { v4 as uuidv4 } from "uuid";
+const fs = require("fs");
+const { v4 } = require("uuid");
 
-export class ProductManager {
+class ProductManager {
 	#products;
 	#path;
 	constructor(aPath) {
@@ -47,7 +47,7 @@ export class ProductManager {
 			throw new Error("There is a product with the same code");
 		}
 
-		let id = uuidv4();
+		let id = v4();
 
 		const productToStore = { ...aProduct, id: id };
 
@@ -134,4 +134,23 @@ export class ProductManager {
 		this.productsWereModified = true;
 		return anId;
 	}
+	existsProductWithID(aProductID) {
+		let result;
+
+		if (this.productsWereModified) {
+			let products = fs.readFileSync(this.#path, "utf-8");
+			result = products.some((product) => product.id.includes(aProductID));
+
+			this.#products = products;
+			this.productsWereModified = false;
+		} else {
+			result = this.#products.some((product) =>
+				product.id.includes(aProductID)
+			);
+		}
+		if (!result) throw new Error("Search of product by id result in undefined");
+		return result;
+	}
 }
+
+module.exports = { ProductManager };

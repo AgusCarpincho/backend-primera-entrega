@@ -1,10 +1,10 @@
-import express from "express";
-import { ProductManager } from "../product-manager.js";
-import { validateDataFromProduct } from "../utils.js";
+const express = require("express");
+const { ProductManager } = require("../product-manager.js");
+const validateDataFromProduct = require("../utils/utils.js");
 
-export const productManager = new ProductManager("./src/productos.json");
+const productManager = new ProductManager("./src/productos.json");
 
-export const productsRouter = express.Router();
+const productsRouter = express.Router();
 
 productsRouter.get("/", async (req, res) => {
 	if (req.query.limit < 1) {
@@ -95,3 +95,5 @@ productsRouter.delete("/:pid", async (req, res) => {
 	}
 	return;
 });
+
+module.exports = { productsRouter, productManager };
