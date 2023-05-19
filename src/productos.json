@@ -1,1 +1,12 @@
-[]
+[
+	{
+		"title": "TV",
+		"description": "Una tele grande",
+		"price": 1000,
+		"code": "TELE123",
+		"stock": 10,
+		"status": true,
+		"category": "Electrodomesticos",
+		"id": "0bd048ce-fa57-4734-b7b9-08557bb949ee"
+	}
+]
